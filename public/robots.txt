@@ -1,0 +1,3 @@
+User-Agent: *
+Allow: /
+Sitemap: https://vk09.ru/sitemap.xml
