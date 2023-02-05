@@ -1,0 +1,30 @@
+html {
+  background-color: $dt("color.primary.50");
+  overflow-y: scroll;
+}
+
+html.dark {
+  background-color: $dt("color.gray.900");
+}
+
+/* Color scheme images helper classes */
+.light-img {
+  display: block;
+}
+.dark-img {
+  display: none;
+}
+
+@dark {
+  .dark-img {
+    display: block;
+  }
+  .light-img {
+    display: none;
+  }
+}
+
+a {
+  transition: all;
+  transition-duration: 250ms;
+}
