@@ -2,17 +2,17 @@
 defineProps({
   image: {
     type: String,
-    default: null
+    default: null,
   },
   imageAlt: {
     type: String,
-    default: 'Hero Image'
+    default: "Hero Image",
   },
   imageClasses: {
     type: String,
-    default: 'right'
-  }
-})
+    default: "right",
+  },
+});
 </script>
 
 <template>
@@ -20,9 +20,7 @@ defineProps({
     <div class="layout">
       <div class="content">
         <div class="title">
-          <ContentSlot :use="$slots.title" unwrap="p">
-            Hero title
-          </ContentSlot>
+          <ContentSlot :use="$slots.title" unwrap="p"> Hero title </ContentSlot>
         </div>
         <div class="subtitle">
           <ContentSlot :use="$slots.subtitle" unwrap="p">
@@ -50,15 +48,14 @@ css({
   '.hero': {
     marginBottom: '{space.10}',
     '.layout': {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       gap: '{space.8}',
-      '@lg': {
-        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-      },
       '.title': {
-        fontSize: '{text.4xl.fontSize}',
-        lineHeight: '{text.4xl.lineHeight}',
+        fontSize: '{text.5xl.fontSize}',
+        lineHeight: '{text.5xl.lineHeight}',
         fontWeight: '{fontWeight.bold}',
       },
       '.subtitle': {
@@ -72,11 +69,15 @@ css({
         lineHeight: '{text.xl.lineHeight}',
       },
       img: {
-        marginLeft: 'auto',
-        width: '75%',
-        aspectRatio: '1 / 1',
-        objectFit: 'cover',
-        borderRadius: '{radii.full}',
+        display: 'none',
+        '@md': {
+          display: 'block',
+          width: '40%',
+        },
+        '@lg': {
+          display: 'block',
+          width: '50%',
+        },
         '&.left': {
           order: -1
         }
