@@ -4,6 +4,10 @@ defineProps({
     type: String,
     default: null,
   },
+  imageDark: {
+    type: String,
+    default: null,
+  },
   imageAlt: {
     type: String,
     default: "Hero Image",
@@ -33,8 +37,22 @@ defineProps({
           </ContentSlot>
         </div>
       </div>
+      <template v-if="image && imageDark">
+        <NuxtImg
+          class="light-img"
+          :class="imageClasses"
+          :src="image"
+          :alt="imageAlt"
+        />
+        <NuxtImg
+          class="dark-img"
+          :class="imageClasses"
+          :src="imageDark"
+          :alt="imageAlt"
+        />
+      </template>
       <NuxtImg
-        v-if="image"
+        v-else-if="image"
         :class="imageClasses"
         :src="image"
         :alt="imageAlt"
@@ -70,12 +88,28 @@ css({
       },
       img: {
         display: 'none',
+        '&.light-img': {
+          '@md': {
+            display: 'block',
+          },
+        },
+        '&.dark-img': {
+          display: 'none',
+        },
+        '@dark': {
+          '&.dark-img': {
+            '@md': {
+              display: 'block',
+            },
+          },
+          '&.light-img': {
+            display: 'none',
+          },
+        },
         '@md': {
-          display: 'block',
           width: '40%',
         },
         '@lg': {
-          display: 'block',
           width: '50%',
         },
         '&.left': {
