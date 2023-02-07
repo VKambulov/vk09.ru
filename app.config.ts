@@ -1,7 +1,7 @@
 export default defineAppConfig({
   app: {
     title: "VKambulov",
-    description: "Mini portfolio of Vladislav Kambulov",
+    description: "Vladislav Kambulov - Full Stack Web Developer from Russia",
     image: {
       src: "/preview.png",
       alt: "Image",
