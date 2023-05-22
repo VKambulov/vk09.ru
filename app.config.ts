@@ -32,7 +32,7 @@ export default defineAppConfig({
       },
       {
         label: "VK",
-        href: "https://vk.com/vkamb",
+        href: "https://vk.com/vkambulov",
         icon: "uil:vk",
       },
     ],
